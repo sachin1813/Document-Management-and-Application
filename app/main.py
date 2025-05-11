@@ -13,7 +13,3 @@ app.include_router(ingestion.router, prefix="/ingestion", tags=["Ingestion Manag
 @app.get("/")
 def root():
     return {"message": "Backend is up and running!"}
-
-if __name__ == "__main__":
-    import uvicorn
-    uvicorn.run("main:app", host="0.0.0.0", port=10000)
