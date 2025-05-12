@@ -6,6 +6,6 @@ from app.services.auth import loginService
 
 router = APIRouter()
 
-@router.post("/login")
+@router.post("/")
 def login(user_login: UserLogin, db: Session = Depends(get_db)):
     return loginService(user_login,db)

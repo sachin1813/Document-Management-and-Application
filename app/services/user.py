@@ -23,7 +23,7 @@ def create_user(db: Session, user_data: UserCreate):
     #object creation of insertion in user_roles
     db_user_roles = UserRoles(
         user_id = db_user.user_id,
-        role_code = user_data.role_code
+        role_code = user_data.role_code.upper()
     )
 
     addToDb(db_user_roles,db)

@@ -1,8 +1,21 @@
 from fastapi import FastAPI
 from app.routes import user,auth,document,ingestion
-#, document, 
+from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
+
+origins = [
+    "http://localhost:4200",  # Angular dev server
+    # Add any other allowed frontend domains here
+]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,  # use ["*"] to allow all
+    allow_credentials=True,
+    allow_methods=["*"],  # or ["POST", "GET", "OPTIONS"] as needed
+    allow_headers=["*"],
+)
 
 #sRegister route modules
 app.include_router(user.router, prefix="/users", tags=["User Management"])
