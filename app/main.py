@@ -4,7 +4,7 @@ from app.middleWare.combined import CombinedMiddleware
 
 app = FastAPI()
 
-app.add_middleware(CombinedMiddleware)
+app.add_middleware(CombinedMiddleware,expose_headers=["X-New-Token"])
 
 #sRegister route modules
 app.include_router(user.router, prefix="/users", tags=["User Management"])
