@@ -7,6 +7,7 @@ from app.config import settings
 from fastapi import HTTPException
 from app.utility.genrateFileName import generateFileName
 from uuid import UUID
+from fastapi.responses import FileResponse
 
 
 def create_document(file, title, description, uploaded_by, db: Session):
@@ -68,5 +69,13 @@ def delete_document(doc_id: int, db: Session):
 
 def get_document_by_id(doc_id,db):
     return db.query(Document).filter(Document.doc_id == doc_id).first()
+
+def downloadFile(doc_id,db):
+    document = db.query(Document).filter(Document.doc_id == doc_id).first()
+    print("sachin ",document.file_path)
+    if os.path.exists(document.file_path):
+        return FileResponse(path=document.file_path, filename=os.path.basename(document.file_path), media_type='application/octet-stream')
+    return {"detail": "File not found"}
+
 
 

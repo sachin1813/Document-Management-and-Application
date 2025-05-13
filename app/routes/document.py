@@ -39,3 +39,7 @@ def delete(doc_id: UUID, db: Session = Depends(get_db)):
     if not success:
         raise HTTPException(status_code=404, detail="Document not found")
     return {"detail": "Document deleted"}
+
+@router.get("/documents/download/{doc_id}")
+def download_document(doc_id: UUID,db : Session = Depends(get_db)):
+    return document_service.downloadFile(doc_id,db)
