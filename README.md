@@ -113,18 +113,9 @@ uvicorn app.main:app --reload
 | Method | Endpoint               | Description              |
 |--------|------------------------|--------------------------|
 | POST   | `/login`               | User login               |
-| POST   | `/documents/upload`    | Upload a document        |
-| GET    | `/documents/download`  | Download a document      |
-| GET    | `/users`               | Get all users            |
-
----
-
-## 🧪 Testing
-
-```bash
-# Run with test client
-pytest tests/
-```
+| POST   | `/documents/` Upload a document        |
+| GET    | `/documents/documents/download/{doc_id}`  | Download a document      |
+| GET    | `/users/users/{userStatus}`               | Get all users            |
 
 ---
 
