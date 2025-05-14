@@ -108,17 +108,46 @@ uvicorn app.main:app --reload
 
 ---
 
-## 🛠️ API Endpoints (Sample)
+# 🛠️ API Endpoints – Document Management & Ingestion System
 
-| Method | Endpoint               | Description              |
-|--------|------------------------|--------------------------|
-| POST   | `/login`               | User login               |
-| POST   | `/documents/` Upload a document        |
-| GET    | `/documents/documents/download/{doc_id}`  | Download a document      |
-| GET    | `/users/users/{userStatus}`               | Get all users            |
+## 🔐 Authentication
+
+| Method | Endpoint   | Description |
+|--------|------------|-------------|
+| POST   | `/login/`  | User login  |
 
 ---
 
+## 👤 User Management
+
+| Method | Endpoint                    | Description    |
+|--------|-----------------------------|----------------|
+| POST   | `/users/`                   | Register User  |
+| GET    | `/users/users/{userStatus}` | Get All Users  |
+| PUT    | `/users/users/{user_id}`    | Update User    |
+
+---
+
+## 📄 Document Management
+
+| Method | Endpoint                                  | Description           |
+|--------|-------------------------------------------|-----------------------|
+| POST   | `/documents/`                             | Upload / Create       |
+| GET    | `/documents/`                             | Get All Documents     |
+| GET    | `/documents/{title}`                      | Get Document by Title |
+| PUT    | `/documents/{doc_id}`                     | Update Document       |
+| DELETE | `/documents/{doc_id}`                     | Delete Document       |
+| GET    | `/documents/documents/download/{doc_id}`  | Download Document     |
+
+---
+
+## ⚙️ Ingestion Management
+
+| Method | Endpoint                           | Description             |
+|--------|------------------------------------|-------------------------|
+| POST   | `/ingestion/ingest/trigger`        | Trigger Ingestion       |
+| GET    | `/ingestion/ingest/all`            | Get All Ingestions      |
+| POST   | `/ingestion/ingestupdate/`         | Update Ingestion Status |
 ## 🔐 Security Notes
 
 - All routes (except `/login`) are protected by JWT
