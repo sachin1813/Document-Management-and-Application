@@ -41,7 +41,7 @@ A robust backend system built with **FastAPI** to manage users, documents, permi
 │   ├── routes/               # All routers
 │   ├── models/               # SQLAlchemy models
 │   ├── schemas/              # Pydantic schemas
-│   ├── controllers/          # Business logic
+│   ├── services/          # Business logic
 │   ├── middlewares/          # Token Validation and CORS middleware
 │   ├── utility/              # Token utilities, encryption 
 │   └── config.py             # Environment config contains database , token secret key,upload file path
